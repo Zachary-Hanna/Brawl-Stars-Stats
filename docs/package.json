@@ -1,0 +1,17 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "brawl stats",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "brawl"
+  ],
+  "author": "zach",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
