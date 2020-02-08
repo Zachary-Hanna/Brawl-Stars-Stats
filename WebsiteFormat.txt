@@ -1,0 +1,30 @@
+——————————————————————————————
+
+Brawl Stars Graphs
+
+Please enter your Player Tag below.
+
+insert Form Element
+
+——————————————————————————————
+
+Display player name, level, and club. (Left)
+
+WINS (Right)
+donut chart with 3v3, solo, and duo wins with (total wins displayed above)
+
+——————————————————————————————
+
+LEVEL (Left)
+polar area with each brawlers level with (average of all brawlers levels displayed above)
+
+RANKS (Right)
+polar area with each brawlers rank (average of ranks displayed above)
+
+——————————————————————————————
+
+CURRENT TROPHIES (Left)
+donut chart with each brawlers current trophies with (total current trophies displayed above)
+
+HIGHEST TROPHIES (Right)
+donut chart  with each brawlers highest trophies with (total highest trophies displayed above)
