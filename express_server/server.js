@@ -1,6 +1,7 @@
 // Dependencies
 const express = require('express');
 const fetch = require('node-fetch'); // note: install this!
+require('dotenv').config();
 
 // Set up server
 const app = express();
@@ -11,13 +12,13 @@ app.use(express.static('public'))
 
 // Endpoint to look up player and return their data
 app.get('/player/:playerID', async (request, response) => {
-  const player_ID = request.params.playerID
-  const api_key = "key"
+  const player_ID = request.params.playerID;
+  const api_key = process.env.API_KEY;
 
   const req_url = `https://api.brawlstars.com/v1/players/%25${player_ID}`;
 
   const brawl_stars_response = await fetch(req_url, {
-    headers: { 'Authorization': `${api_key}` }
+    headers: { 'Authorization': `Bearer ${api_key}` }
   })
 
   const player_data = await brawl_stars_response.json();
