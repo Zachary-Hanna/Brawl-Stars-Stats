@@ -1,3 +1,5 @@
+var Chart = require('chart.js');
+
 // gets players info from server
 const populatePlayerInfo = async () => {
     const playerID = '9U0Q8VUR' //placeholder for now
