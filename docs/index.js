@@ -9,13 +9,18 @@ app.listen(3000, () => console.log('listening at 3000'));
 // Serves files in the public directory
 app.use(express.static('public'))
 
-// New endpoint to handle brawlers info
-app.get('/brawlers', async (request, response) => {
-    const brawler_url = `https://api.brawlstars.com/v1/brawlers/16000000`;
+// Endpoint to look up player and return their data
+app.get('/player/:playerID', async (request, response) => {
+    const player_ID = request.params.playerID
+    
+    const req_url = `https://api.brawlstars.com/v1/players/%25${player_ID}`;
 
-    const brawler_response = await fetch(brawler_url, {
-        headers: { 'Authorization': 'Bearer key'}
-    });
-    const brawler_data = await brawler_response.json();
-    response.json(brawler_data);
+    const brawl_stars_response = await fetch(req_url, {
+        headers: { 'Authorization': 'key'}
+    })
+    
+    const player_data = await brawl_stars_response.json();
+    response.json(player_data);
 });
+
+
