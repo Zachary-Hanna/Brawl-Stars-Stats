@@ -1,8 +1,8 @@
 {
-  "name": "docs",
+  "name": "express_server",
   "version": "1.0.0",
   "description": "brawl stats",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
