@@ -1,5 +1,3 @@
-var Chart = require('chart.js');
-
 // gets players info from server
 const populatePlayerInfo = async () => {
     const playerID = '9U0Q8VUR' //placeholder for now
@@ -19,7 +17,6 @@ const populatePlayerInfo = async () => {
 
 // example graph created in this fucntion
 const createGraphs = () => {
-
     var ctx = document.getElementById('myChart').getContext('2d');
     new Chart(ctx, {
         // The type of chart we want to create
