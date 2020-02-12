@@ -1,6 +1,6 @@
 // gets players info from server
-const populatePlayerInfo = async () => {
-    const playerID = '9U0Q8VUR' //placeholder for now
+const populatePlayerInfo = async (playerID) => {
+
     try {
         const response = await fetch(`/player/${playerID}`);
         const json = await response.json();
@@ -17,34 +17,13 @@ const populatePlayerInfo = async () => {
     }
 }
 
-// example graph created in this fucntion
-const createGraphs = () => {
-    var ctx = document.getElementById('myChart').getContext('2d');
-    new Chart(ctx, {
-        // The type of chart we want to create
-        type: 'line',
-
-        // The data for our dataset
-        data: {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            datasets: [{
-                label: 'My First dataset',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: [0, 10, 5, 2, 20, 30, 45]
-            }]
-        },
-
-        // Configuration options go here
-        options: {}
-    });
+//Sample: 9U0Q8VUR
+function onClick() {
+    populatePlayerInfo(document.getElementById('playerTag').value);
 }
 
-console.log("hiii");
-
-populatePlayerInfo();
-createGraphs();
 
 
-var input = document.getElementById("playertag").value;
-console.log(input);
+
+
+

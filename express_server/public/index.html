@@ -12,11 +12,11 @@
     <h1>Brawl Stars Stats</h1>
     <p>A project that uses the Brawl Stars API to create various graphs from in game statistics.</p>
 
-    <form>
-        Player Tag:<br>
-        <input type="text" id="playertag"><br>
-        <input type="submit" onclick="othername();" />
-    </form>
+
+    Player Tag:<br>
+    <input type="text" id="playerTag" />
+    <button onclick="onClick()">Click Here</button>
+
 
     <h3>User Info</h3>
     <p>
@@ -25,9 +25,6 @@
         You are level <span id="level"></span> <br>
         Your club is: <span id="club"></span> <br>
     </p>
-
-    <!-- example graph -->
-    <canvas id="myChart"></canvas>
 
     <script src="sketch.js"></script>
 </body>
