@@ -1,6 +1,6 @@
 // gets players info from server
-const populatePlayerInfo = async () => {
-    const playerID = '9U0Q8VUR' //placeholder for now
+const populatePlayerInfo = async (playerID) => {
+
     try {
         const response = await fetch(`/player/${playerID}`);
         const json = await response.json();
@@ -76,19 +76,7 @@ const createGraphs = (json) => {
     chart.canvas.parentNode.style.width = '500px';
 }
 
-
-
-
-
-
-
-
-
-
-
-populatePlayerInfo();
-
-
-
-var input = document.getElementById("playertag").value;
-console.log(input);
+//Sample: 9U0Q8VUR
+function onClick() {
+    populatePlayerInfo(document.getElementById('playerTag').value);
+}
