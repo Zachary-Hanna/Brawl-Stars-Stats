@@ -5,6 +5,8 @@ const populatePlayerInfo = async () => {
         const response = await fetch(`/player/${playerID}`);
         const json = await response.json();
 
+        console.log(json);
+
         // populate DOM elements
         document.getElementById('user').textContent = json.name;
         document.getElementById('trophyCount').textContent = json.trophies;
@@ -38,5 +40,11 @@ const createGraphs = () => {
     });
 }
 
+console.log("hiii");
+
 populatePlayerInfo();
 createGraphs();
+
+
+var input = document.getElementById("playertag").value;
+console.log(input);
