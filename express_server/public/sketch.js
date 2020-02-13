@@ -6,12 +6,7 @@ const populatePlayerInfo = async (playerID) => {
         const json = await response.json();
 
         console.log(json);
-
         createGraphs(json);
-
-
-
-
     } catch (error) {
         console.log(error);
     }
@@ -19,13 +14,11 @@ const populatePlayerInfo = async (playerID) => {
 
 // example graph created in this fucntion
 const createGraphs = (json) => {
-    var ctx = 'myChart2';
-
     var gold = 'rgb(213, 197, 21)'
     var silver = 'rgb(183, 182, 178)'
     var bronze = 'rgb(191, 128, 27)'
 
-    var chart = new Chart(ctx, {
+    var victoryChart = new Chart('victoryChart', {
         type: 'doughnut',
         data: {
             datasets: [{
@@ -55,25 +48,85 @@ const createGraphs = (json) => {
             ],
 
         },
+        options: {}
+    });
+    victoryChart.canvas.parentNode.style.height = '500px';
+    victoryChart.canvas.parentNode.style.width = '500px';
 
+    var brawlerLevel = new Chart('brawlerLevel', {
+        type: 'polarArea',
+        data: {
+            datasets: [{
+                data: []
+            }],
+        
+            labels: []
+        },
+        options: {}
+    });
 
+    for (const brawler of json.brawlers) {
+        brawlerLevel.data.datasets[0].data.push(brawler.power);
+        brawlerLevel.data.labels.push(brawler.name);
+    }
+    brawlerLevel.update();
+    
+    var brawlerRank = new Chart('brawlerRank', {
+        type: 'polarArea',
+        data: {
+            datasets: [{
+                data: []
+            }],
+        
+            labels: []
+        },
+        options: {}
+    });
 
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
+    for (const brawler of json.brawlers) {
+        brawlerRank.data.datasets[0].data.push(brawler.rank);
+        brawlerRank.data.labels.push(brawler.name);
+    }
+    brawlerRank.update();
 
-        }
+    var currentTrophies = new Chart('currentTrophies', {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: [],
+            }],
+
+            labels: [],
+
+        },
+        options: {}
 
     });
-    chart.canvas.parentNode.style.height = '500px';
-    chart.canvas.parentNode.style.width = '500px';
+
+    for (const brawler of json.brawlers) {
+        currentTrophies.data.datasets[0].data.push(brawler.trophies);
+        currentTrophies.data.labels.push(brawler.name);
+    }
+    currentTrophies.update();
+
+    var highestTrophyCount = new Chart('highestTrophies', {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: [],
+            }],
+
+            labels: [],
+        },
+        options: {}
+    });
+
+    for (const brawler of json.brawlers) {
+        highestTrophyCount.data.datasets[0].data.push(brawler.highestTrophies);
+        highestTrophyCount.data.labels.push(brawler.name);
+    }
+    highestTrophyCount.update();
+    
 }
 
 //Sample: 9U0Q8VUR
