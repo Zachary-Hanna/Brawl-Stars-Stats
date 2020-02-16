@@ -51,74 +51,43 @@ const createGraphs = (json) => {
     victoryChart.canvas.parentNode.style.height = '500px';
     victoryChart.canvas.parentNode.style.width = '500px';
 
-    var brawlerLevel = new Chart('brawlerLevel', {
-        type: 'polarArea',
+
+
+    var stackedBar = new Chart('comboChart', {
+        type: 'bar',
         data: {
-            datasets: [{
-                data: []
-            }],
-        
-            labels: []
-        },
-        options: {}
-    });
+            datasets: [
+                {
+                    label: 'Current Trophies',
+                    data: [67.8],
+                    backgroundColor: '#D6E9C6' // green
+                },
+                {
+                    label: 'Highest Trophies',
+                    data: [20.7],
+                    backgroundColor: '#FAEBCC' // yellow
+                },
 
-    var brawlerRank = new Chart('brawlerRank', {
-        type: 'polarArea',
-        data: {
-            datasets: [{
-                data: []
-            }],
-        
-            labels: []
-        },
-        options: {}
-    });
-
-    var currentTrophies = new Chart('currentTrophies', {
-        type: 'doughnut',
-        data: {
-            datasets: [{
-                data: [],
-            }],
-
-            labels: [],
-
-        },
-        options: {}
-
-    });
-
-    var highestTrophyCount = new Chart('highestTrophies', {
-        type: 'doughnut',
-        data: {
-            datasets: [{
-                data: [],
-            }],
-
+            ],
             labels: [],
         },
-        options: {}
+        options: {
+            scales: {
+                xAxes: [{
+                    stacked: true
+                }],
+                yAxes: [{
+                    stacked: true
+                }]
+            }
+        }
     });
 
-    for (const brawler of json.brawlers) {
-        brawlerRank.data.datasets[0].data.push(brawler.rank);
-        brawlerRank.data.labels.push(brawler.name);
-        highestTrophyCount.data.datasets[0].data.push(brawler.highestTrophies);
-        highestTrophyCount.data.labels.push(brawler.name);
-        currentTrophies.data.datasets[0].data.push(brawler.trophies);
-        currentTrophies.data.labels.push(brawler.name);
-        brawlerLevel.data.datasets[0].data.push(brawler.power);
-        brawlerLevel.data.labels.push(brawler.name);
+}
+    populatePlayerInfo('9U0Q8VUR');
+
+    //Sample: 9U0Q8VUR
+    function onClick() {
+        populatePlayerInfo(document.getElementById('playerTag').value);
     }
-    brawlerLevel.update();
-    highestTrophyCount.update();
-    currentTrophies.update();
-    brawlerRank.update();
-    
-}
 
-//Sample: 9U0Q8VUR
-function onClick() {
-    populatePlayerInfo(document.getElementById('playerTag').value);
-}
