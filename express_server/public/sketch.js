@@ -1,6 +1,5 @@
 // gets players info from server
 const populatePlayerInfo = async (playerID) => {
-
     try {
         const response = await fetch(`/player/${playerID}`);
         const json = await response.json();
@@ -12,7 +11,6 @@ const populatePlayerInfo = async (playerID) => {
     }
 }
 
-// example graph created in this fucntion
 const createGraphs = (json) => {
     var gold = 'rgb(213, 197, 21)'
     var silver = 'rgb(183, 182, 178)'
@@ -65,12 +63,6 @@ const createGraphs = (json) => {
         options: {}
     });
 
-    for (const brawler of json.brawlers) {
-        brawlerLevel.data.datasets[0].data.push(brawler.power);
-        brawlerLevel.data.labels.push(brawler.name);
-    }
-    brawlerLevel.update();
-    
     var brawlerRank = new Chart('brawlerRank', {
         type: 'polarArea',
         data: {
@@ -82,12 +74,6 @@ const createGraphs = (json) => {
         },
         options: {}
     });
-
-    for (const brawler of json.brawlers) {
-        brawlerRank.data.datasets[0].data.push(brawler.rank);
-        brawlerRank.data.labels.push(brawler.name);
-    }
-    brawlerRank.update();
 
     var currentTrophies = new Chart('currentTrophies', {
         type: 'doughnut',
@@ -103,12 +89,6 @@ const createGraphs = (json) => {
 
     });
 
-    for (const brawler of json.brawlers) {
-        currentTrophies.data.datasets[0].data.push(brawler.trophies);
-        currentTrophies.data.labels.push(brawler.name);
-    }
-    currentTrophies.update();
-
     var highestTrophyCount = new Chart('highestTrophies', {
         type: 'doughnut',
         data: {
@@ -122,10 +102,19 @@ const createGraphs = (json) => {
     });
 
     for (const brawler of json.brawlers) {
+        brawlerRank.data.datasets[0].data.push(brawler.rank);
+        brawlerRank.data.labels.push(brawler.name);
         highestTrophyCount.data.datasets[0].data.push(brawler.highestTrophies);
         highestTrophyCount.data.labels.push(brawler.name);
+        currentTrophies.data.datasets[0].data.push(brawler.trophies);
+        currentTrophies.data.labels.push(brawler.name);
+        brawlerLevel.data.datasets[0].data.push(brawler.power);
+        brawlerLevel.data.labels.push(brawler.name);
     }
+    brawlerLevel.update();
     highestTrophyCount.update();
+    currentTrophies.update();
+    brawlerRank.update();
     
 }
 
