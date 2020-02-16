@@ -1,30 +1,26 @@
 ——————————————————————————————
 
 Brawl Stars Graphs
+A project that uses the Brawl Stars API to create various graphs from in game statistics.
 
-Please enter your Player Tag below.
-
-insert Form Element
-
-——————————————————————————————
-
-Display player name, level, and club. (Left)
-
-WINS (Right)
-donut chart with 3v3, solo, and duo wins with (total wins displayed above)
+Player Tag:
+*Insert Form Element* (click here)
 
 ——————————————————————————————
 
-LEVEL (Left)
-polar area with each brawlers level with (average of all brawlers levels displayed above)
-
-RANKS (Right)
-polar area with each brawlers rank (average of ranks displayed above)
+Display player name, level, and club.
 
 ——————————————————————————————
 
-CURRENT TROPHIES (Left)
-donut chart with each brawlers current trophies with (total current trophies displayed above)
+WINS 
+donut chart with 3v3, solo, and duo wins (gold, silver, and bronze respectively)
 
-HIGHEST TROPHIES (Right)
-donut chart  with each brawlers highest trophies with (total highest trophies displayed above)
+——————————————————————————————
+
+CURRENT TROPHIES & HIGHEST TROPHIES (Stacked Bar Chart)
+A stacked bar chart displaying the current and highest trophies for each brawler.
+
+In order to emulate an overlapping graph, 
+we will use the "difference between highest and current trophies" in place of the "highest trophies". 
+This is so that the current and highest trophies of each brawler won't add together in the y axis;
+as a result the top of each bar should only reach the highest trophies for each brawler in the y axis.
