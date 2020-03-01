@@ -9,22 +9,35 @@
 </head>
 
 <body>
-
+<div class = "jumbotron">
+    <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <h1>Brawl Stars Stats</h1>
     <p>A project that uses the Brawl Stars API to create various graphs from in game statistics.</p>
+</div>
+</div>
 
-
+<div class= "row">
+    <div class = "col-md-12 col-lg-12 col-sm-12 col-xs-12">
+    
     Player Tag:<br>
     <input type="text" id="playerTag" />
     <button onclick="onClick()">Click Here</button>
 
-
     <h3>User Info</h3>
 
-    <canvas id="victoryChart" width="50" height="50"></canvas>
-    <canvas id="currentTrophies" width="50" height="50"></canvas>
-    <canvas id="highestTrophies" width="50" height="50"></canvas>
-    <canvas id="comboChart" width="50" height="50"></canvas>
+    </div>
+
+    <div class = "col-md-12 col-lg-6 col-sm-12 col-xs-12">
+        <canvas id="victoryChart" ></canvas>
+    </div>
+    
+    <div class = "col-md-12 col-lg-6 col-sm-12 col-xs-12">
+        <canvas id="comboChart" ></canvas>
+    </div>
+
+      
+    
+</div>
 
 
     <script src="sketch.js"></script>
