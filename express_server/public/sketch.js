@@ -1,31 +1,22 @@
 // gets players info from server
 const populatePlayerInfo = async (playerID) => {
-
     try {
         const response = await fetch(`/player/${playerID}`);
         const json = await response.json();
 
         console.log(json);
-
         createGraphs(json);
-
-
-
-
     } catch (error) {
         console.log(error);
     }
 }
 
-// example graph created in this fucntion
 const createGraphs = (json) => {
-    var ctx = 'myChart2';
-
     var gold = 'rgb(213, 197, 21)'
     var silver = 'rgb(183, 182, 178)'
     var bronze = 'rgb(191, 128, 27)'
 
-    var chart = new Chart(ctx, {
+    var victoryChart = new Chart('victoryChart', {
         type: 'doughnut',
         data: {
             datasets: [{
@@ -55,28 +46,48 @@ const createGraphs = (json) => {
             ],
 
         },
+        options: {}
+    });
+    victoryChart.canvas.parentNode.style.height = '500px';
+    victoryChart.canvas.parentNode.style.width = '500px';
 
 
 
+    var stackedBar = new Chart('comboChart', {
+        type: 'bar',
+        data: {
+            datasets: [
+                {
+                    label: 'Current Trophies',
+                    data: [67.8],
+                    backgroundColor: '#D6E9C6' // green
+                },
+                {
+                    label: 'Highest Trophies',
+                    data: [20.7],
+                    backgroundColor: '#FAEBCC' // yellow
+                },
+
+            ],
+            labels: [],
+        },
         options: {
-            responsive: true,
-            maintainAspectRatio: false,
             scales: {
+                xAxes: [{
+                    stacked: true
+                }],
                 yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
+                    stacked: true
                 }]
             }
-
         }
-
     });
-    chart.canvas.parentNode.style.height = '500px';
-    chart.canvas.parentNode.style.width = '500px';
-}
 
-//Sample: 9U0Q8VUR
-function onClick() {
-    populatePlayerInfo(document.getElementById('playerTag').value);
 }
+    populatePlayerInfo('9U0Q8VUR');
+
+    //Sample: 9U0Q8VUR
+    function onClick() {
+        populatePlayerInfo(document.getElementById('playerTag').value);
+    }
+

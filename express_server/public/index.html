@@ -4,6 +4,7 @@
 <head>
     <title>Brawl Stars Stats</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
 
@@ -19,20 +20,17 @@
 
 
     <h3>User Info</h3>
-    <p>
-        Your username is: <span id="user"></span> <br>
-        You have <span id="trophyCount"></span> trophies <br>
-        You are level <span id="level"></span> <br>
-        Your club is: <span id="club"></span> <br>
-    </p>
 
-    <!-- example graph -->
-    <canvas id="myChart"></canvas>
-
-    <canvas id="myChart2" width="50" height="50"></canvas>
+    <canvas id="victoryChart" width="50" height="50"></canvas>
+    <canvas id="currentTrophies" width="50" height="50"></canvas>
+    <canvas id="highestTrophies" width="50" height="50"></canvas>
+    <canvas id="comboChart" width="50" height="50"></canvas>
 
 
     <script src="sketch.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    
 
 
 </body>
