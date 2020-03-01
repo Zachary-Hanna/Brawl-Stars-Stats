@@ -1,52 +1,71 @@
-// gets players info from server
-const populatePlayerInfo = async (playerID) => {
+//Sample Test User: 9U0Q8VUR
+
+/* Code Starts Here */
+
+
+
+initializePage();
+
+// sets the page up with 3 different users
+async function initializePage() {
+    const data = await getPlayerJson("28GVPJRYL")
+    const data2 = await getPlayerJson("Q9J0JLU")
+    const data3 = await getPlayerJson("8VVCUQV2")
+
+    createDonutChart(data, "chDonut1");
+    appendUserData(data.name, "username1");
+    appendUserData(data.expLevel, "level1");
+    appendUserData(data.club.name, "club1");
+
+    createDonutChart(data2, "chDonut2");
+    appendUserData(data2.name, "username2");
+    appendUserData(data2.expLevel, "level2");
+    appendUserData(data2.club.name, "club2");
+
+    createDonutChart(data3, "chDonut3");
+    appendUserData(data3.name, "username3");
+    appendUserData(data3.expLevel, "level3");
+    appendUserData(data3.club.name, "club3");
+}
+
+/* On Click Handlers */
+async function victoryChartOne() {
+    const data = await getPlayerJson(document.getElementById('playerTag').value);
+    createDonutChart(data, "chDonut1");
+    appendUserData(data.name, "username1");
+    appendUserData(data.expLevel, "level1");
+    appendUserData(data.club.name, "club1");
+}
+
+async function victoryChartTwo() {
+    const data = await getPlayerJson(document.getElementById('playerTag2').value);
+    createDonutChart(data, "chDonut2");
+    appendUserData(data.name, "username2");
+    appendUserData(data.expLevel, "level2");
+    appendUserData(data.club.name, "club2");
+}
+
+async function victoryChartThree() {
+    const data = await getPlayerJson(document.getElementById('playerTag3').value);
+    createDonutChart(data, "chDonut3");
+    appendUserData(data.name, "username3");
+    appendUserData(data.expLevel, "level3");
+    appendUserData(data.club.name, "club3");
+}
+
+/* Helper Functions */
+async function getPlayerJson(playerID) {
     try {
         const response = await fetch(`/player/${playerID}`);
         const json = await response.json();
-
-        console.log(json);
-        createGraphs(json);
+        return json;
     } catch (error) {
         console.log(error);
     }
 }
 
-const createGraphs = (json) => {
-    var gold = 'rgb(213, 197, 21)'
-    var silver = 'rgb(183, 182, 178)'
-    var bronze = 'rgb(191, 128, 27)'
-
-    var victoryChart = new Chart('victoryChart', {
-        type: 'doughnut',
-        data: {
-            datasets: [{
-                data: [
-                    json["3vs3Victories"],
-                    json.soloVictories,
-                    json.duoVictories
-                ],
-                backgroundColor: [
-                    `${gold}`,
-                    `${silver}`,
-                    `${bronze}`
-                ],
-                borderColor: [
-                    `${gold}`,
-                    `${silver}`,
-                    `${bronze}`
-                ],
-            }],
-            // These labels appear in the legend and in the tooltips when hovering different arcs
-            labels: [
-                '3v3 Victories',
-                'Solo Victories',
-                'Duo Victories'
-            ],
-        },
-        options: {}
-    });
-
-    /* 3 donut charts */
+function createDonutChart(json, chartName) {
+    /* Chart Options */
     var donutOptions = {
         cutoutPercentage: 85,
         legend: {
@@ -58,67 +77,35 @@ const createGraphs = (json) => {
             }
         }
     };
+    // gold, silver, bronze
+    var donutColors = ['#d5c515', '#b7b6b2', '#bf801b']
 
-    var donutColors = ['#007bff','#28a745','#333333']
-
-    // donut 1
-    var chDonutData1 = {
-        labels: ['Bootstrap', 'Popper', 'Other'],
+    var chDonutData = {
+        labels: ['3v3 Victories', 'Solo Victories', 'Duo Victories'],
         datasets: [{
             backgroundColor: donutColors,
             borderWidth: 0,
-            data: [74, 11, 40]
+            data: [json["3vs3Victories"], json.soloVictories, json.duoVictories]
         }]
     };
-
-    var chDonut1 = document.getElementById("chDonut1");
-    if (chDonut1) {
-        new Chart(chDonut1, {
+    var chDonut = document.getElementById(chartName);
+    if (chDonut) {
+        new Chart(chDonut, {
             type: 'pie',
-            data: chDonutData1,
+            data: chDonutData,
             options: donutOptions
         });
     }
+}
 
-    // donut 2
-    var chDonutData2 = {
-        labels: ['Wips', 'Pops', 'Dags'],
-        datasets: [{
-            backgroundColor: donutColors,
-            borderWidth: 0,
-            data: [40, 45, 30]
-        }]
-    };
-    var chDonut2 = document.getElementById("chDonut2");
-    if (chDonut2) {
-        new Chart(chDonut2, {
-            type: 'pie',
-            data: chDonutData2,
-            options: donutOptions
-        });
-    }
-
-    // donut 3
-    var chDonutData3 = {
-        labels: ['Angular', 'React', 'Other'],
-        datasets: [{
-            backgroundColor: donutColors,
-            borderWidth: 0,
-            data: [21, 45, 55]
-        }]
-    };
-    var chDonut3 = document.getElementById("chDonut3");
-    if (chDonut3) {
-        new Chart(chDonut3, {
-            type: 'pie',
-            data: chDonutData3,
-            options: donutOptions
-        });
-    }
+function appendUserData(data, elementName) {
+    var paragraph = document.getElementById(elementName);
+    paragraph.textContent = data;
+}
 
 
-
-
+/*
+const createGraphs = (json) => {
     var stackedBar = new Chart('comboChart', {
         type: 'bar',
         data: {
@@ -150,10 +137,4 @@ const createGraphs = (json) => {
     });
 
 }
-populatePlayerInfo('9U0Q8VUR');
-
-//Sample: 9U0Q8VUR
-function onClick() {
-    populatePlayerInfo(document.getElementById('playerTag').value);
-}
-
+*/

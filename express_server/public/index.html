@@ -13,17 +13,60 @@
     <h1>Brawl Stars Stats</h1>
     <p>A project that uses the Brawl Stars API to create various graphs from in game statistics.</p>
 
-
-    Player Tag:<br>
-    <input type="text" id="playerTag" />
-    <button onclick="onClick()">Click Here</button>
-
     <div class="container">
-        <div class="row my-3">
+        <div class="row">
             <div class="col">
                 <h3>User Info</h3>
             </div>
         </div>
+        <div class="row playerTags">
+            <div class="col-md">
+                <input type="text" id="playerTag" />
+                <button onclick="victoryChartOne()">Enter Player Tag</button>
+            </div>
+            <div class="col-md">
+                <input type="text" id="playerTag2" />
+                <button onclick="victoryChartTwo()">Enter Player Tag</button>
+            </div>
+            <div class="col-md">
+                <input type="text" id="playerTag3" />
+                <button onclick="victoryChartThree()">Enter Player Tag</button>
+            </div>
+        </div>
+
+        <div class="row username">
+            <div class="col-md">
+                </br>
+                <p id="username1">Username: </p>
+                <p id="level1">Level: </p>
+                <p id="club1">Club: </p>
+            </div>
+            <div class="col-md">
+                </br>
+                <p id="username2">Username: </p>
+                <p id="level2">Level: </p>
+                <p id="club2">Club: </p>
+            </div>
+            <div class="col-md">
+                </br>
+                <p id="username3">Username: </p>
+                <p id="level3">Level: </p>
+                <p id="club3">Club: </p>
+            </div>
+        </div>
+
+        <div class="row username">
+            <div class="col-md">
+                <h5>level and club</h5>
+            </div>
+            <div class="col-md">
+                <h5>level and club</h5>
+            </div>
+            <div class="col-md">
+                <h5>level and club</h5>
+            </div>
+        </div>
+
         <div class="row py-2">
             <div class="col-md-4 py-1">
                 <div class="card">
@@ -46,19 +89,19 @@
                     </div>
                 </div>
             </div>
-        </div>  
+        </div>
     </div>
 
 
-    
+
 
     <canvas id="comboChart" width="50" height="50"></canvas>
 
 
     <script src="sketch.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
 
 
 </body>
