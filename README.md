@@ -1,4 +1,4 @@
-# Brawl-Stars-Stats
+# Brawl Stars Stats
 
 A community run webapp made with Node.js Express Framework for tracking and comparing stats for Supercell's mobile game, Brawl Stars. 
 
