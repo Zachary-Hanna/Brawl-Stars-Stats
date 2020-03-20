@@ -1,4 +1,4 @@
-## Some CSS Framework Suggestions
+## Bootstrap Themes
 
 We have decided to use bootstrap. Here are some themes to choose from:
 * [monotone](https://themesguide.github.io/top-hat/dist/monotone/)
