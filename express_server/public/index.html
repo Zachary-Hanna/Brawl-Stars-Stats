@@ -3,34 +3,134 @@
 
 <head>
     <title>Brawl Stars Stats</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
 
-<body>
+<body data-spy="scroll" data-target="#navbar1" data-offset="60">
+    <header class="bg-primary">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-12">
+                    <div class="text-center m-0 vh-100 d-flex flex-column justify-content-center text-light">
+                        <h1 class="display-4">Brawl Stars Stats</h1>
+                        <p class="lead">A project that uses the Brawl Stars API to create various graphs from in game
+                            statistics.</p>
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-6 mx-auto">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control form-control-lg" placeholder="#2UCLR0998">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-light btn-lg rounded-right"
+                                            type="button">Enter Tag</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-    <h1>Brawl Stars Stats</h1>
-    <p>A project that uses the Brawl Stars API to create various graphs from in game statistics.</p>
 
 
-    Player Tag:<br>
-    <input type="text" id="playerTag" />
-    <button onclick="onClick()">Click Here</button>
 
+    </-- TODO: get rid of this -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3>User Info</h3>
+            </div>
+        </div>
+        <div class="row playerTags">
+            <div class="col-md">
+                <input type="text" id="playerTag" />
+                <button onclick="victoryChartOne()">Enter Player Tag</button>
+            </div>
+            <div class="col-md">
+                <input type="text" id="playerTag2" />
+                <button onclick="victoryChartTwo()">Enter Player Tag</button>
+            </div>
+            <div class="col-md">
+                <input type="text" id="playerTag3" />
+                <button onclick="victoryChartThree()">Enter Player Tag</button>
+            </div>
+        </div>
 
-    <h3>User Info</h3>
+        <div class="row username">
+            <div class="col-md">
+                </br>
+                <p>Username: </p>
+                <p id="username1"></p>
+                <p>Level: </p>
+                <p id="level1">Level: </p>
+                <p>Club: </p>
+                <p id="club1">Club: </p>
+            </div>
+            <div class="col-md">
+                </br>
+                <p>Username: </p>
+                <p id="username2"></p>
+                <p>Level: </p>
+                <p id="level2">Level: </p>
+                <p>Club: </p>
+                <p id="club2">Club: </p>
+            </div>
+            <div class="col-md">
+                </br>
+                <p>Username: </p>
+                <p id="username3"></p>
+                <p>Level: </p>
+                <p id="level3">Level: </p>
+                <p>Club: </p>
+                <p id="club3">Club: </p>
+            </div>
+        </div>
 
-    <canvas id="victoryChart" width="50" height="50"></canvas>
-    <canvas id="currentTrophies" width="50" height="50"></canvas>
-    <canvas id="highestTrophies" width="50" height="50"></canvas>
-    <canvas id="comboChart" width="50" height="50"></canvas>
+        <div class="row username">
+            <div class="col-md">
+                <h5>level and club</h5>
+            </div>
+            <div class="col-md">
+                <h5>level and club</h5>
+            </div>
+            <div class="col-md">
+                <h5>level and club</h5>
+            </div>
+        </div>
+
+        <div class="row py-2">
+            <div class="col-md-4 py-1">
+                <div class="card">
+                    <div class="card-body">
+                        <canvas id="chDonut1"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 py-1">
+                <div class="card">
+                    <div class="card-body">
+                        <canvas id="chDonut2"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 py-1">
+                <div class="card">
+                    <div class="card-body">
+                        <canvas id="chDonut3"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <script src="sketch.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
 
 
 </body>
