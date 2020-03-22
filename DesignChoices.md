@@ -1,12 +1,10 @@
-## Bootstrap Themes
+## Bootstrap Stuff
 
-We have decided to use bootstrap. Here are some themes to choose from:
-* [monotone](https://themesguide.github.io/top-hat/dist/monotone/)
-* [deeply](https://themesguide.github.io/top-hat/dist/deeply/)
-* [lymcha](https://themesguide.github.io/top-hat/dist/lymcha/)
-* [lumen](https://bootswatch.com/lumen/)
-* [wizardry](https://hackerthemes.com/bootstrap-themes/demo/wizardry/)
-* [good news](https://hackerthemes.com/bootstrap-themes/demo/good-news/)
-* [hello world](https://hackerthemes.com/bootstrap-themes/demo/hello-world/)
-* [retro](https://hackerthemes.com/bootstrap-themes/demo/retro/)
-* [growth](https://hackerthemes.com/bootstrap-themes/demo/growth/)
+We have decided to use monotone. 
+
+I want to add page transition. What do you like best? 
+* [Top/Side](https://codepen.io/hannesofie/pen/aplGf)
+* [Simple Fade](https://christopheraue.net/design/fading-pages-on-load-and-unload)
+
+If we want to get fancy with our buttons: 
+* [fancy button](https://codepen.io/EvyatarDa/pen/waKXMd)
