@@ -10,10 +10,7 @@ app.listen(3000, () => console.log('listening at 3000'));
 // Serves files in the public directory
 app.use(express.static('public', {extensions: ['html', 'htm']}))
 
-// Custom 404 page
-app.all('*', function(req, res) { 
-  res.redirect('/404.html'); 
-});
+
 
 // Endpoint to look up player and return their data
 app.get('/player/:playerID', async (request, response) => {
@@ -31,3 +28,6 @@ app.get('/player/:playerID', async (request, response) => {
 });
 
 
+app.all('*', function(req, res) {
+  res.redirect("404");
+});
