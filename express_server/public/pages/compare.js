@@ -4,11 +4,14 @@
 /* Code Starts Here */
 $(document).ready(function () {
     $("#showGraph").click(async function () {
-        const playerTag = $("#playerTag").val();
-        if (!playerTag.length == 0) {
-            const data = await getPlayerJson(playerTag);
-            createDonutChart(data, "chDonut1");
-            $("#HomeDisplay").hide();
+        const playerTagOne = $("#playerTagOne").val();
+        const playerTagTwo = $("#playerTagTwo").val();
+        if (playerTagOne.length > 0 && playerTagTwo.length > 0) {
+            const playerOneJSON = await getPlayerJson(playerTagOne);
+            const playerTwoJSON = await getPlayerJson(playerTagTwo);
+            createDonutChart(playerOneJSON, "chDonut1");
+            createDonutChart(playerTwoJSON, "chDonut2");
+            $("#CompareDisplay").hide();
             $("#Graphs").show();
         }
     });
@@ -19,6 +22,7 @@ async function getPlayerJson(playerID) {
     try {
         const response = await fetch(`/player/${playerID}`);
         const json = await response.json();
+        console.log(json);
         return json;
     } catch (error) {
         console.log(error);
