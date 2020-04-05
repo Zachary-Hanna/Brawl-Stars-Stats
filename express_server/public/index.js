@@ -9,7 +9,7 @@ $(document).ready(function () {
             const data = await getPlayerJson(playerTag);
             createDonutChart(data, "chDonut1");
             $("#HomeDisplay").hide();
-            $("#Graphs").show();
+            $("#DataDisplay").show();
         }
     });
 });
@@ -19,6 +19,7 @@ async function getPlayerJson(playerID) {
     try {
         const response = await fetch(`/player/${playerID}`);
         const json = await response.json();
+        console.log(json);
         return json;
     } catch (error) {
         console.log(error);
@@ -34,11 +35,13 @@ function createDonutChart(json, chartName) {
             padding: 5,
             labels: {
                 pointStyle: 'circle',
-                usePointStyle: true
+                usePointStyle: true,
+                fontColor: "white",
+                fontSize: 14
             }
         }
     };
-    // gold, silver, bronze
+    // colors are: gold, silver, bronze
     var donutColors = ['#d5c515', '#b7b6b2', '#bf801b']
 
     var chDonutData = {

@@ -9,10 +9,39 @@ $(document).ready(function () {
         if (playerTagOne.length > 0 && playerTagTwo.length > 0) {
             const playerOneJSON = await getPlayerJson(playerTagOne);
             const playerTwoJSON = await getPlayerJson(playerTagTwo);
-            createDonutChart(playerOneJSON, "chDonut1");
-            createDonutChart(playerTwoJSON, "chDonut2");
+            var victoryData = {
+                labels: ['3v3 Victories', 'Duo Victories', 'Solo Victories'],
+                datasets: [
+                    {
+                        label: playerOneJSON.name,
+                        backgroundColor: "#3e95cd",
+                        data: [playerOneJSON["3vs3Victories"], playerOneJSON.duoVictories, playerOneJSON.soloVictories]
+                    }, {
+                        label: playerTwoJSON.name,
+                        backgroundColor: "#8e5ea2",
+                        data: [playerTwoJSON["3vs3Victories"], playerTwoJSON.duoVictories, playerTwoJSON.soloVictories]
+                    }
+                ]
+            };
+            var trophyData = {
+                labels: ['Highest Trophies', 'Trophies'],
+                datasets: [
+                    {
+                        label: playerOneJSON.name,
+                        backgroundColor: "#3e95cd",
+                        data: [playerOneJSON.highestTrophies, playerOneJSON.trophies]
+                    }, {
+                        label: playerTwoJSON.name,
+                        backgroundColor: "#8e5ea2",
+                        data: [playerTwoJSON.highestTrophies, playerTwoJSON.trophies]
+                    }
+                ]
+            };
+
+            createGroupedBarChart(victoryData, "chBarWin", "Total Number of Wins");
+            createGroupedBarChart(trophyData, "chBarTrophy", "Total Number of Trophies");
             $("#CompareDisplay").hide();
-            $("#Graphs").show();
+            $("#DataDisplay").show();
         }
     });
 });
@@ -22,43 +51,54 @@ async function getPlayerJson(playerID) {
     try {
         const response = await fetch(`/player/${playerID}`);
         const json = await response.json();
-        console.log(json);
         return json;
     } catch (error) {
         console.log(error);
     }
 }
 
-function createDonutChart(json, chartName) {
+function createGroupedBarChart(chBarData, chartName, title) {
     /* Chart Options */
-    var donutOptions = {
-        cutoutPercentage: 85,
+    var chBarOptions = {
+        title: {
+            display: true,
+            text: title,
+            fontColor: "white",
+            fontSize: 20
+        },
         legend: {
-            position: 'bottom',
-            padding: 5,
             labels: {
-                pointStyle: 'circle',
-                usePointStyle: true
+                fontColor: "white",
+                fontSize: 18
             }
+        },
+        scales: {
+            yAxes: [{
+                gridLines: {
+                    color: "#666666"
+                },
+                ticks: {
+                    fontColor: "white",
+                    fontSize: 18
+                }
+            }],
+            xAxes: [{
+                gridLines: {
+                    color: "#666666"
+                },
+                ticks: {
+                    fontColor: "white",
+                    fontSize: 14
+                }
+            }]
         }
     };
-    // gold, silver, bronze
-    var donutColors = ['#d5c515', '#b7b6b2', '#bf801b']
-
-    var chDonutData = {
-        labels: ['3v3 Victories', 'Solo Victories', 'Duo Victories'],
-        datasets: [{
-            backgroundColor: donutColors,
-            borderWidth: 0,
-            data: [json["3vs3Victories"], json.soloVictories, json.duoVictories]
-        }]
-    };
-    var chDonut = document.getElementById(chartName);
-    if (chDonut) {
-        new Chart(chDonut, {
-            type: 'pie',
-            data: chDonutData,
-            options: donutOptions
+    var chBar = document.getElementById(chartName)
+    if (chBar) {
+        new Chart(chBar, {
+            type: 'bar',
+            data: chBarData,
+            options: chBarOptions
         });
     }
 }
