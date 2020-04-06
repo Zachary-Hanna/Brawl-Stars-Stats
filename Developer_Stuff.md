@@ -1,15 +1,33 @@
-## Some Documentation for Devs
+# Some Documentation for Devs
 
-#### Home Page
+## Planning
 
+### Short Term Goals
+
+**Home Page**
 * Table items: name, trophies/highest trophies, level, best time as big brawler or robo rumble
 
-#### Useful things
+**Pages**
+* About / Core Values / Contact Us
+
+**Get demo on github.io**
+
+### Stretch Goals
+
+**MongoDB**
+* To store data (over time)
+
+**Expand Home Page**
+* Add battle logs and other data to our home page
+
+## Resources
+### Useful things
 
 * [These](https://brawlstats.readthedocs.io/en/latest/api.html) docs that explains Brawl Stars API might be useful
+* The theme's [home page](https://themesguide.github.io/top-hat/dist/monotone/) we are using
 
 
-#### Bootstrap Suggestions:
+### Bootstrap Suggestions:
 
 1. I want to add page transitions. Here are some I liked.  
 * [Top/Side](https://codepen.io/hannesofie/pen/aplGf)
