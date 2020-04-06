@@ -11,44 +11,52 @@
 </head>
 
 
-<body data-spy="scroll" data-target="#navbar1" data-offset="60">
-    <header class="bg-primary">
-        <div class="container h-100">
-            <div class="row h-100">
-                <div class="col-12">
-                    <div class="text-center m-0 vh-100 d-flex flex-column justify-content-center text-light">
-                        <div id="HomeDisplay">
-                            <h1 class="display-4">Brawl Stars Stats</h1>
-                            <p class="lead">A project that uses the Brawl Stars API to create various graphs from in
-                                game statistics.</p>
-                            <div class="row">
-                                <div class="col-lg-4 col-sm-6 mx-auto">
-                                    <div class="input-group mb-3">
-                                        <input type="text" id="playerTag" class="form-control form-control-lg"
-                                            placeholder="2UCLR0998">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-light btn-lg rounded-right" id="showGraph"
-                                                type="button">Enter Tag</button>
+<body>
+    <div id="HomeDisplay">
+        <header class="bg-primary">
+            <div class="container h-100">
+                <div class="row h-100">
+                    <div class="col-12">
+                        <div class="text-center m-0 vh-100 d-flex flex-column justify-content-center text-light">
+                            <div id="HomeDisplay">
+                                <h1 class="display-4">Brawl Stars Stats</h1>
+                                <p class="lead">A project that uses the Brawl Stars API to create various graphs from in
+                                    game statistics.</p>
+                                <div class="row">
+                                    <div class="col-lg-4 col-sm-6 mx-auto">
+                                        <div class="input-group mb-3">
+                                            <input type="text" id="playerTag" class="form-control form-control-lg"
+                                                placeholder="2UCLR0998">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-light btn-lg rounded-right"
+                                                    id="showGraph" type="button">Enter Tag</button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="Graphs">
-                            <div class="card bg-primary">
-                                <div class="card-header">
-                                    <h1>Total Trophies</h1>
-                                </div>
-                                <div class="card-body">
-                                    <canvas id="chDonut1"></canvas>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </header>
+    </div>
+
+    <div class="bg-primary m-0 vh-100" id="DataDisplay">
+        <div class="row align-items-center justify-content-center h-100">
+            <div class="col-8">
+                <div class="card bg-transparent border-0">
+                    <div class="card-header text-light text-center">
+                        <h1>The Victory Donut</h1>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="chDonut1"></canvas>
+                    </div>
+                </div>
+            </div>
         </div>
-    </header>
+    </div>
+
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary" id="navbar1">
         <div class="container">
             <a class="navbar-brand mr-1 mb-1 mt-0" href="https://github.com/ChillHopOverflow">ChillHopOverflow</a>
