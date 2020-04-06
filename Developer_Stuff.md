@@ -10,7 +10,9 @@
 **Pages**
 * About / Core Values / Contact Us
 
-**Get demo on github.io**
+**Demo Website**
+* Get a demo website on github.io 
+* If we wanted to actually run it, it would cost ~ $25/month (domain and hosting)
 
 ### Stretch Goals
 
