@@ -1,5 +1,9 @@
 ## Some Documentation for Devs
 
+#### Home Page
+
+* Table items: name, trophies/highest trophies, level, best time as big brawler or robo rumble
+
 #### Useful things
 
 * [These](https://brawlstats.readthedocs.io/en/latest/api.html) docs that explains Brawl Stars API might be useful
