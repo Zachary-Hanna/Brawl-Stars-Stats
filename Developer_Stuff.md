@@ -18,6 +18,7 @@
 
 **MongoDB**
 * To store data (over time)
+* [This](https://www.youtube.com/watch?v=JnEH9tYLxLk) might give some pointers
 
 **Expand Home Page**
 * Add battle logs and other data to our home page
