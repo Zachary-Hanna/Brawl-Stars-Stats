@@ -1,4 +1,4 @@
-# Some Documentation for Devs
+# Dev Notes
 
 ## Planning
 
