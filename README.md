@@ -2,6 +2,8 @@
 
 A community run webapp made with Node.js Express Framework for tracking and comparing stats for Supercell's mobile game, Brawl Stars. 
 
+Demo: https://chillhopoverflow.github.io/Brawl-Stars-Stats/
+
 # Developer Documentation
 
 First you will need Node/Express to run the server
