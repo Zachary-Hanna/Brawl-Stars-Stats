@@ -10,20 +10,36 @@
 </head>
 
 <body data-spy="scroll" data-target="#navbar1" data-offset="60">
-    <header class="bg-primary">
+    <div class="bg-primary">
         <div class="container h-100">
             <div class="row h-100">
                 <div class="col-12">
-                    <div class="text-center m-0 vh-100 d-flex flex-column justify-content-center text-light">
-                        <h1 class="display-4">Core Values</h1>
-
-
+                    <div class="m-0 vh-100 d-flex flex-column justify-content-center">
+                        <div class="d-flex my-3">
+                            <div class="jumbotron w-100 py-5 mx-auto">
+                                <h1>About This Project</h1>
+                                <p class="lead">
+                                    This project started because of the <a href="contact">developer's</a> favorite
+                                    mobile game, Brawl Stars. <br> <br> The backend for this app is
+                                    built using node.js and it utilizes express.js to create a server that can both
+                                    fetch and serve files. The frontend is built ontop of the bootstrap
+                                    framework in order to make a responsive and smooth user experience. <br><br> A
+                                    typical request to the Brawl Stars API starts off after a user submits
+                                    their player tag. Javascript will then execute and communicate with the server which
+                                    will make a request to Brawl Stars API to fetch a JSON file.
+                                    This will be sent back to the client side and then the web page will dynamically
+                                    update with data and chart.js graphs displaying the data requested.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
+    </div>
+
+
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary" id="navbar1">
         <div class="container">
             <a class="navbar-brand mr-1 mb-1 mt-0" href="https://github.com/ChillHopOverflow">ChillHopOverflow</a>
@@ -36,21 +52,19 @@
                     <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="compare">Compare</a>
+                    <a class="nav-link" href="compare.html">Compare</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="about">About</a>
+                    <a class="nav-link" href="about.html">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="core-values">Core Values</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact">Contact Us</a>
+                    <a class="nav-link" href="contact.html">Contact Us</a>
                 </li>
             </ul>
 
         </div>
     </nav>
+
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
