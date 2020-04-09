@@ -4,15 +4,6 @@
 
 ### Short Term Goals
 
-**Home Page**
-* Table items: name, trophies/highest trophies, level, best time as big brawler or robo rumble
-
-**Pages**
-* About / Core Values / Contact Us
-
-**Demo Website**
-* Get a demo website on github.io 
-* If we wanted to actually run it, it would cost ~ $25/month (domain and hosting)
 
 ### Stretch Goals
 
