@@ -6,7 +6,6 @@ $(document).ready(function () {
     $("#showGraph").click(async function () {
         const playerTag = $("#playerTag").val();
         if (!playerTag.length == 0) {
-
             createDonutChart("chDonut1");
             $("#HomeDisplay").hide();
             $("#DataDisplay").show();
